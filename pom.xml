@@ -12,7 +12,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>me.zyb</groupId>
+    <groupId>me.zyb.springcloudcomponent</groupId>
     <artifactId>spring-cloud-component</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
