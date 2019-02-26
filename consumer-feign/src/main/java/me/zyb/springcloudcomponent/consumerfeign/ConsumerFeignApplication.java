@@ -1,23 +1,22 @@
-package me.zyb.springcloudcomponent.configserver;
+package me.zyb.springcloudcomponent.consumerfeign;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @author zhangyingbin
  */
 @Slf4j
+@EnableFeignClients
 @EnableDiscoveryClient
-@EnableConfigServer
 @SpringBootApplication
-public class ConfigServerApplication {
+public class ConsumerFeignApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerApplication.class, args);
+		SpringApplication.run(ConsumerFeignApplication.class, args);
 		String fozu = "\n"
 				+ "                       _ooOoo_                      " + "\n"
 				+ "                      o8888888o                     " + "\n"
@@ -42,4 +41,5 @@ public class ConfigServerApplication {
 				+ "    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  " + "\n";
 		log.info(fozu);
 	}
+
 }

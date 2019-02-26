@@ -1,0 +1,134 @@
+#此为log4j2模板，使用时，复制到项目里面[logging.config]配置的目录下
+#日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL
+Configuration:
+  status: WARN
+  monitorInterval: 30
+
+  #定义全局变量
+  Properties:
+    Property:
+    - name: project.name
+      value: consumer-ribbon
+    - name: log.level.console
+      value: INFO
+    - name: log.path
+      value: /opt/logs/${project.name}
+    - name: log.pattern
+      value: "%d{yyyy-MM-dd HH:mm:ss.SSS} -%5p [%15.15t : ${sys:PID:-}] %l : %m%n"
+
+  #定义输出源
+  Appenders:
+    Console:
+      name: CONSOLE
+      target: SYSTEM_OUT
+      ThresholdFilter:
+        #“sys:”表示：如果VM参数中没指定这个变量值，则使用本文件中定义的缺省全局变量值
+        level: ${sys:log.level.console}
+        onMatch: ACCEPT
+        onMismatch: DENY
+      PatternLayout:
+        pattern: ${log.pattern}
+    RollingFile:
+    - name: ROLLING_FILE_INFO
+      ignoreExceptions: false
+      fileName: ${log.path}/info.log
+      filePattern: "${log.path}/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log"
+      ThresholdFilter:
+        level: INFO
+        onMatch: ACCEPT
+        onMismatch: DENY
+      PatternLayout:
+        pattern: ${log.pattern}
+      Policies:
+        TimeBasedTriggeringPolicy:
+          modulate: true
+          interval: 1
+        SizeBasedTriggeringPolicy:
+          size: "10 MB"
+      DefaultRolloverStrategy:
+        max: 1000
+    - name: ROLLING_FILE_WARN
+      ignoreExceptions: false
+      fileName: ${log.path}/warn.log
+      filePattern: "${log.path}/$${date:yyyy-MM}/warn-%d{yyyy-MM-dd}-%i.log"
+      ThresholdFilter:
+        level: WARN
+        onMatch: ACCEPT
+        onMismatch: DENY
+      PatternLayout:
+        pattern: ${log.pattern}
+      Policies:
+        TimeBasedTriggeringPolicy:
+          modulate: true
+          interval: 1
+        SizeBasedTriggeringPolicy:
+          size: "10 MB"
+      DefaultRolloverStrategy:
+        max: 1000
+    - name: ROLLING_FILE_ERROR
+      ignoreExceptions: false
+      fileName: ${log.path}/error.log
+      filePattern: "${log.path}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log"
+      ThresholdFilter:
+        level: ERROR
+        onMatch: ACCEPT
+        onMismatch: DENY
+      PatternLayout:
+        pattern: ${log.pattern}
+      Policies:
+        TimeBasedTriggeringPolicy:
+          modulate: true
+          interval: 1
+        SizeBasedTriggeringPolicy:
+          size: "10 MB"
+      DefaultRolloverStrategy:
+        max: 1000
+    - name: ROLLING_FILE_DB
+      ignoreExceptions: false
+      fileName: ${log.path}/db.log
+      filePattern: "${log.path}/$${date:yyyy-MM}/db-%d{yyyy-MM-dd}-%i.log"
+      ThresholdFilter:
+        level: TRACE
+        onMatch: ACCEPT
+        onMismatch: DENY
+      PatternLayout:
+        pattern: ${log.pattern}
+      Policies:
+        TimeBasedTriggeringPolicy:
+          modulate: true
+          interval: 1
+        SizeBasedTriggeringPolicy:
+          size: "10 MB"
+      DefaultRolloverStrategy:
+        max: 1000
+
+  #定义Logger，只有定义了logger并引入appender，appender才会生效
+  Loggers:
+    Root:
+      level: ALL
+      AppenderRef:
+      - ref: CONSOLE
+      - ref: ROLLING_FILE_INFO
+      - ref: ROLLING_FILE_WARN
+      - ref: ROLLING_FILE_ERROR
+    Logger:
+    - name: org.springframework
+      level: INFO
+      additivity: false
+    - name: org.mybatis
+      level: INFO
+      additivity: false
+    - name: org.hibernate
+      level: INFO
+      additivity: false
+    - name: org.hibernate.SQL
+      level: DEBUG
+      additivity: false
+      AppenderRef:
+      - ref: ROLLING_FILE_DB
+    - name: org.hibernate.type.descriptor.sql.BasicBinder
+      level: TRACE
+      additivity: false
+      AppenderRef:
+      - ref: CONSOLE
+      - ref: ROLLING_FILE_DB

@@ -2,6 +2,9 @@
 server:
   port: 8888
 
+logging:
+  config: classpath:log4j2.yml
+
 spring:
   profiles:
     active: local
@@ -14,8 +17,8 @@ spring:
         git:
           uri: https://github.com/zyb23/config-repo/
           searchPaths:
-          username:
-          password:
+          username: zyb23
+          password: 1zhang2ying3bin.
           force-pull: true
     bus:
       enabled: true
@@ -36,23 +39,6 @@ management:
   endpoint:
     shutdown:
       enabled: false
-
----
-#开发环境（dev）
-spring:
-  profiles: dev
-  rabbitmq:
-    port: 5672
-    addresses: 192.168.1.101,192.168.1.102,192.168.1.103
-    username: admin
-    password: 123456
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://192.168.1.101:8761/eureka/,http://192.168.1.102:8761/eureka/,http://192.168.1.103:8761/eureka/
-
-...
 
 ---
 #本机环境（local）
@@ -76,6 +62,23 @@ management:
   endpoint:
     shutdown:
       enabled: true
+
+...
+
+---
+#开发环境（dev）
+spring:
+  profiles: dev
+  rabbitmq:
+    port: 5672
+    addresses: 192.168.1.101,192.168.1.102,192.168.1.103
+    username: admin
+    password: 123456
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.1.101:8761/eureka/,http://192.168.1.102:8761/eureka/,http://192.168.1.103:8761/eureka/
 
 ...
 

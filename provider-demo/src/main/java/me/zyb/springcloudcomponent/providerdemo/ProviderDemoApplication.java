@@ -1,23 +1,20 @@
-package me.zyb.springcloudcomponent.configserver;
+package me.zyb.springcloudcomponent.providerdemo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * @author zhangyingbin
  */
 @Slf4j
 @EnableDiscoveryClient
-@EnableConfigServer
 @SpringBootApplication
-public class ConfigServerApplication {
+public class ProviderDemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerApplication.class, args);
+		SpringApplication.run(ProviderDemoApplication.class, args);
 		String fozu = "\n"
 				+ "                       _ooOoo_                      " + "\n"
 				+ "                      o8888888o                     " + "\n"
@@ -42,4 +39,5 @@ public class ConfigServerApplication {
 				+ "    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  " + "\n";
 		log.info(fozu);
 	}
+
 }
