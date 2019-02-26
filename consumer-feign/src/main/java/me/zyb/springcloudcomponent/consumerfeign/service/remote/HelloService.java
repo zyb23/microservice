@@ -1,4 +1,4 @@
-package me.zyb.springcloudcomponent.consumerfeign.service;
+package me.zyb.springcloudcomponent.consumerfeign.service.remote;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

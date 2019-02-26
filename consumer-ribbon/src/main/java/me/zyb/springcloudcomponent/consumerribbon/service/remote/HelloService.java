@@ -1,4 +1,4 @@
-package me.zyb.springcloudcomponent.consumerribbon.service;
+package me.zyb.springcloudcomponent.consumerribbon.service.remote;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
