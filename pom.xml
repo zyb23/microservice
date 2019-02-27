@@ -35,7 +35,7 @@
 
     <!-- 所有依赖先分组再以字母排序 -->
     <dependencies>
-        <!-- spring-boot-starter -->
+        <!-- group spring-boot-starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -68,7 +68,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- spring-cloud-starter -->
+        <!-- group spring-cloud-starter -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
@@ -82,7 +82,7 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!-- others -->
+        <!-- group others -->
         <!--<dependency>-->
             <!--<groupId>com.alibaba</groupId>-->
             <!--<artifactId>druid-spring-boot-starter</artifactId>-->
@@ -135,4 +135,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
