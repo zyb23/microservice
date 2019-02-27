@@ -6,10 +6,10 @@ logging:
   config: classpath:log4j2.yml
 
 spring:
-  profiles:
-    active: local
   application:
     name: config-server
+  profiles:
+    active: local
   cloud:
     config:
       label: master

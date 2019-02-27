@@ -5,14 +5,14 @@ logging:
   config: classpath:log4j2.yml
 
 spring:
-  profiles:
-    active: local
   application:
     name: consumer-ribbon
+  profiles:
+    active: local
   cloud:
     config:
       name: ${spring.application.name},druid
-      profile: local
+      profile: ${spring.profiles.active}
       label: master
       #uri: http://localhost:8888/
       discovery:
