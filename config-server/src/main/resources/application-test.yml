@@ -1,0 +1,18 @@
+#测试环境（test）
+spring:
+  rabbitmq:
+    port: 5672
+    addresses: 47.92.7.130
+    username: admin
+    password: 123456
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://47.92.7.130:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

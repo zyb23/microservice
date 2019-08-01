@@ -1,0 +1,5 @@
+#测试环境（test）
+eureka:
+  client:
+    service-url:
+      defaultZone: http://47.92.7.130:8761/eureka/
