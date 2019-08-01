@@ -9,7 +9,7 @@ spring:
   application:
     name: config-server
   profiles:
-    active: test
+    active: prod
   cloud:
     config:
       label: master
