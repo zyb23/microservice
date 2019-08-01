@@ -8,7 +8,7 @@ spring:
   application:
     name:  eureka-server
   profiles:
-    active: local
+    active: test
 
 eureka:
   instance:
