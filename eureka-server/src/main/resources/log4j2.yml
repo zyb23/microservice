@@ -1,4 +1,4 @@
-#此为log4j2模板，使用时，复制到项目里面[logging.config]配置的目录下
+#此为log4j2模板，使用时，复制到项目里面[logging.config]配置的目录下，修改全局变量[project.name]的值
 #日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL
 Configuration:
   status: WARN
@@ -12,7 +12,7 @@ Configuration:
     - name: log.level.console
       value: INFO
     - name: log.path
-      value: /opt/logs/${project.name}
+      value: /home/app/${project.name}/log/
     - name: log.pattern
       value: "%d{yyyy-MM-dd HH:mm:ss.SSS} -%5p [%15.15t : ${sys:PID:-}] %l : %m%n"
 

@@ -1,8 +1,5 @@
 #本机环境（local）
 eureka:
-  server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 6000
   client:
     registerWithEureka: false
     fetchRegistry: false
