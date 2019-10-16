@@ -12,7 +12,7 @@ Configuration:
     - name: log.level.console
       value: INFO
     - name: log.path
-      value: /opt/logs/${project.name}
+      value: /home/app/${project.name}/log/
     - name: log.pattern
       value: "%d{yyyy-MM-dd HH:mm:ss.SSS} -%5p [%15.15t : ${sys:PID:-}] %l : %m%n"
 

@@ -7,9 +7,6 @@ spring:
     password: 123456
 
 eureka:
-  instance:
-    lease-expiration-duration-in-seconds: 9
-    lease-renewal-interval-in-seconds: 3
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
