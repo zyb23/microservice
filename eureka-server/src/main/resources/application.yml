@@ -1,9 +1,6 @@
 server:
   port: 8761
 
-logging:
-  config: classpath:log4j2.yml
-
 spring:
   application:
     name:  eureka-server

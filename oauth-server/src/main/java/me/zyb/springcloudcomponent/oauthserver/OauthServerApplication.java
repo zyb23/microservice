@@ -1,22 +1,20 @@
-package me.zyb.springcloudcomponent.configserver;
+package me.zyb.springcloudcomponent.oauthserver;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 
 /**
  * @author zhangyingbin
  */
 @Slf4j
-@EnableDiscoveryClient
-@EnableConfigServer
+@EnableAuthorizationServer
 @SpringBootApplication
-public class ConfigServerApplication {
+public class OauthServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerApplication.class, args);
+		SpringApplication.run(OauthServerApplication.class, args);
 		String fozu = "\n"
 				+ "                       _ooOoo_                      " + "\n"
 				+ "                      o8888888o                     " + "\n"

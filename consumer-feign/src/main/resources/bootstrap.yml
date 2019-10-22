@@ -1,9 +1,6 @@
 server:
   port: 18082
 
-logging:
-  config: classpath:log4j2.yml
-
 spring:
   application:
     name: consumer-feign

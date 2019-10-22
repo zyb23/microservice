@@ -2,9 +2,6 @@
 server:
   port: 8888
 
-logging:
-  config: classpath:log4j2.yml
-
 spring:
   application:
     name: config-server

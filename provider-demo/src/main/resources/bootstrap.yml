@@ -1,9 +1,6 @@
 server:
   port: 18080
 
-logging:
-  config: classpath:log4j2.yml
-
 spring:
   application:
     name: provider-demo
