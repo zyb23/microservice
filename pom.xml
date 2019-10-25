@@ -18,6 +18,7 @@
     <packaging>pom</packaging>
     <name>spring-cloud-component</name>
 
+    <!-- 子模块管理 -->
     <modules>
         <module>eureka-server</module>
         <module>config-server</module>
@@ -34,9 +35,8 @@
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
     </properties>
 
-    <!-- 所有依赖先分组再以字母排序 -->
+    <!--  所有的子项目默认依赖 -->
     <dependencies>
-        <!-- group spring-boot-starter -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -55,7 +55,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- group spring-cloud-starter -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bus-amqp</artifactId>
@@ -69,18 +68,13 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
-        <!-- group others -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
-            <optional>true</optional>
-        </dependency>
     </dependencies>
 
+    <!-- 依赖版本号管理,子项目不会默认依赖，需要显示引用依赖 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
