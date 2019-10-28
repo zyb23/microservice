@@ -1,0 +1,56 @@
+server:
+  port: 18081
+
+spring:
+  application:
+    name: consumer-demo
+  profiles:
+    active: local
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+---
+#本机环境（local）
+spring:
+  profiles: local
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+...
+
+---
+#开发环境（dev）
+spring:
+  profiles: dev
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+...
+
+---
+#测试环境（test）
+spring:
+  profiles: test
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+...
+
+---
+#生产环境（prod）
+spring:
+  profiles: prod
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+...
