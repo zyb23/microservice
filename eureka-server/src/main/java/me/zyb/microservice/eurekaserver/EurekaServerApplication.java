@@ -1,22 +1,20 @@
-package me.zyb.springcloudcomponent.configserver;
+package me.zyb.microservice.eurekaserver;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 /**
  * @author zhangyingbin
  */
 @Slf4j
-@EnableDiscoveryClient
-@EnableConfigServer
+@EnableEurekaServer
 @SpringBootApplication
-public class ConfigServerApplication {
+public class EurekaServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerApplication.class, args);
+		SpringApplication.run(EurekaServerApplication.class, args);
 		String fozu = "\n"
 				+ "                       _ooOoo_                      " + "\n"
 				+ "                      o8888888o                     " + "\n"

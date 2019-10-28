@@ -1,23 +1,22 @@
-package me.zyb.springcloudcomponent.consumerribbon;
+package me.zyb.microservice.configserver;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * @author zhangyingbin
  */
 @Slf4j
 @EnableDiscoveryClient
+@EnableConfigServer
 @SpringBootApplication
-public class ConsumerRibbonApplication {
+public class ConfigServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConsumerRibbonApplication.class, args);
+		SpringApplication.run(ConfigServerApplication.class, args);
 		String fozu = "\n"
 				+ "                       _ooOoo_                      " + "\n"
 				+ "                      o8888888o                     " + "\n"
@@ -42,11 +41,4 @@ public class ConsumerRibbonApplication {
 				+ "    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  " + "\n";
 		log.info(fozu);
 	}
-
-	@Bean
-	@LoadBalanced
-	RestTemplate restTemplate() {
-		return new RestTemplate();
-	}
 }
-

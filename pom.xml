@@ -9,30 +9,30 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.0.RELEASE</version>
+        <!--<version>2.1.9.RELEASE</version>-->
         <relativePath/>
     </parent>
 
-    <groupId>me.zyb.springcloudcomponent</groupId>
-    <artifactId>spring-cloud-component</artifactId>
+    <groupId>me.zyb.microservice</groupId>
+    <artifactId>microservice-all</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>spring-cloud-component</name>
+    <name>microservice-all</name>
 
     <!-- 子模块管理 -->
     <modules>
         <module>eureka-server</module>
         <module>config-server</module>
-        <module>oauth-server</module>
-        <module>provider-demo</module>
-        <module>consumer-ribbon</module>
-        <module>consumer-feign</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.M3</spring-cloud.version>
+        <!--<spring-cloud.version>Greenwich.SR3</spring-cloud.version>-->
+        <spring-cloud-alibaba.version>0.9.0.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <!--  所有的子项目默认依赖 -->
@@ -40,10 +40,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -56,31 +52,25 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
     </dependencies>
 
-    <!-- 依赖版本号管理,子项目不会默认依赖，需要显示引用依赖 -->
+    <!-- 依赖版本号管理，子项目不会默认依赖，需要显示引用依赖 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
                 <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

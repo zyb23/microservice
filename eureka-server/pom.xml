@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>me.zyb.springcloudcomponent</groupId>
-        <artifactId>spring-cloud-component</artifactId>
+        <groupId>me.zyb.microservice</groupId>
+        <artifactId>microservice-all</artifactId>
         <version>1.0.0</version>
     </parent>
 
