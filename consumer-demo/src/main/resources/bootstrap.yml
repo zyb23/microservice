@@ -11,14 +11,15 @@ spring:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yml
+        shared-dataids: druid.yml,redis.yml
+        refreshable-dataids: druid.yml,redis.yml
+      discovery:
+        server-addr: 127.0.0.1:8848
+
 ---
 #本机环境（local）
 spring:
   profiles: local
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
 
 ...
 
@@ -28,8 +29,10 @@ spring:
   profiles: dev
   cloud:
     nacos:
+      config:
+        namespace: 226f7c27-d3d9-4710-a7bc-fa3e012dd322
       discovery:
-        server-addr: 127.0.0.1:8848
+        namespace: 226f7c27-d3d9-4710-a7bc-fa3e012dd322
 
 ...
 
@@ -39,8 +42,10 @@ spring:
   profiles: test
   cloud:
     nacos:
+      config:
+        namespace: 490a2498-7085-4f48-ba3a-c2b55250b8e6
       discovery:
-        server-addr: 127.0.0.1:8848
+        namespace: 490a2498-7085-4f48-ba3a-c2b55250b8e6
 
 ...
 
@@ -50,7 +55,8 @@ spring:
   profiles: prod
   cloud:
     nacos:
+      config:
+        namespace: cf40f739-80bc-41ad-a28f-e965a73830a1
       discovery:
-        server-addr: 127.0.0.1:8848
-
+        namespace: cf40f739-80bc-41ad-a28f-e965a73830a1
 ...

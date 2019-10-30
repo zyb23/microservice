@@ -14,15 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/config")
 @RefreshScope
 public class ConfigController {
-	@Value("${remark.env}")
-	private String env;
-	@Value("${druid}")
-	private String druid;
-	@Value("${log}")
-	private String log2;
+	@Value("${spring.profiles}")
+	private String profiles;
 
 	@RequestMapping("/test")
 	public String test(){
-		return env + druid + log2;
+		return profiles;
 	}
 }
