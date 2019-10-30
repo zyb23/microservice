@@ -16,9 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class ConfigController {
 	@Value("${remark.env}")
 	private String env;
+	@Value("${druid}")
+	private String druid;
+	@Value("${log}")
+	private String log2;
 
-	@RequestMapping("/getEnv")
-	public String getEnv(){
-		return env;
+	@RequestMapping("/test")
+	public String test(){
+		return env + druid + log2;
 	}
 }
