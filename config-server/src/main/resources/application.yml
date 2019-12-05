@@ -13,7 +13,7 @@ spring:
       server:
         git:
           uri: https://github.com/zyb23/config-repo/
-          searchPaths:
+          search-paths: '{application}'
           username: zyb23
           password: 1zhang2ying3bin.
           force-pull: true
