@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
-    <springProperty scope="context" name="appName" source="spring.application.name" />
+    <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="config-server" />
     <property name="logPath" value="/home/app/${appName}/log/" />
     <property name="logPattern" value="%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(-%5p) [%boldGreen(%15.15t)] %highlight(%c.%M\\(%L\\)) : %m%n" />
     <property name="fileSize" value="50MB" />

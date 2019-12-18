@@ -20,7 +20,6 @@
     <modules>
         <module>eureka-server</module>
         <module>config-server</module>
-        <module>consumer-demo</module>
     </modules>
 
     <properties>
