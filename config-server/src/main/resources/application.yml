@@ -6,7 +6,7 @@ spring:
   application:
     name: config-server
   profiles:
-    active: local
+    active: test
   cloud:
     config:
       label: master
@@ -21,9 +21,3 @@ spring:
       enabled: true
       trace:
         enabled: true
-
-eureka:
-  instance:
-    instance-id: ${spring.cloud.client.ip-address}:${server.port}
-    prefer-ip-address: true
-    hostname: ${spring.cloud.client.ip-address}
