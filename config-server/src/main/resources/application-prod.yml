@@ -5,6 +5,16 @@ spring:
     addresses: 192.168.1.101,192.168.1.102,192.168.1.103
     username: admin
     password: 123456
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://github.com/zyb23/config-repo/
+          search-paths: '{application}'
+          username:
+          password:
+          force-pull: true
 
 eureka:
   client:
