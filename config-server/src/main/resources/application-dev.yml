@@ -5,6 +5,16 @@ spring:
     addresses: 134.175.54.165
     username: admin
     password: 123456
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: https://gitee.com/zyb23/config-repo/
+          search-paths: '{application}'
+          username:
+          password:
+          force-pull: true
 
 eureka:
   client:
