@@ -1,0 +1,82 @@
+#使用时，将此文件复制到[resources]下，修改名称为bootstrap，并修改spring.application.name的值
+server:
+  port: 19091
+
+spring:
+  application:
+    name: provider
+  profiles:
+    active: local
+  cloud:
+    config:
+      name: ${spring.application.name},druid
+      profile: ${spring.profiles.active}
+      label: master
+      #uri: http://localhost:8888/
+      discovery:
+        enabled: true
+        service-id: config-server
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+
+---
+#本机环境（local）
+spring:
+  profiles: local
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: 127.0.0.1
+    instance-id: ${eureka.instance.hostname}:${server.port}
+...
+
+---
+#开发环境（dev）
+spring:
+  profiles: dev
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://134.175.54.165:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: 134.175.54.165
+    instance-id: ${eureka.instance.hostname}:${server.port}
+...
+
+---
+#测试环境（test）
+spring:
+  profiles: test
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://47.92.7.130:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: 47.92.7.130
+    instance-id: ${eureka.instance.hostname}:${server.port}
+...
+
+---
+#生产环境（prod）
+spring:
+  profiles: prod
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.1.101:8761/eureka/,http://192.168.1.102:8761/eureka/,http://192.168.1.103:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    hostname: ${spring.cloud.client.ip-address}
+    instance-id: ${eureka.instance.hostname}:${server.port}
+...
