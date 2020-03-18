@@ -20,9 +20,3 @@ eureka:
   client:
     service-url:
       defaultZone: http://134.175.54.165:8761/eureka/
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"

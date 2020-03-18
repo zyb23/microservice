@@ -6,7 +6,7 @@ spring:
   application:
     name: config-server
   profiles:
-    active: dev
+    active: local
   cloud:
     bus:
       enabled: true
@@ -17,3 +17,9 @@ eureka:
     prefer-ip-address: true
     hostname: ${spring.cloud.client.ip-address}
     instance-id: ${eureka.instance.hostname}:${server.port}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
