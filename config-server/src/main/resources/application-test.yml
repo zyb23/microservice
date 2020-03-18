@@ -2,7 +2,7 @@
 spring:
   rabbitmq:
     port: 5672
-    addresses: 47.92.7.130
+    addresses: 134.175.54.165
     username: admin
     password: 123456
   cloud:
@@ -10,7 +10,7 @@ spring:
       label: master
       server:
         git:
-          uri: https://github.com/zyb23/config-repo/
+          uri: https://gitee.com/zyb23/config-repo/
           search-paths: '{application}'
           username:
           password:
@@ -19,11 +19,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://47.92.7.130:8761/eureka/
-  instance:
-    prefer-ip-address: true
-    hostname: 47.92.7.130
-    instance-id: ${eureka.instance.hostname}:${server.port}
+      defaultZone: http://134.175.54.165:8761/eureka/
 
 management:
   endpoints:

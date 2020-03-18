@@ -5,4 +5,9 @@ spring:
   application:
     name:  eureka-server
   profiles:
-    active: local
+    active: dev
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: ${spring.cloud.client.ip-address}
+    instance-id: ${eureka.instance.hostname}:${server.port}

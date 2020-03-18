@@ -2,7 +2,7 @@
 spring:
   rabbitmq:
     port: 5672
-    addresses: 134.175.54.165
+    addresses: 192.168.1.90
     username: admin
     password: 123456
   cloud:
@@ -19,11 +19,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://134.175.54.165:8761/eureka/
-  instance:
-    prefer-ip-address: true
-    hostname: 134.175.54.165
-    instance-id: ${eureka.instance.hostname}:${server.port}
+      defaultZone: http://192.168.1.90:8761/eureka/
 
 management:
   endpoints:
