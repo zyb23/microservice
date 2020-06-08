@@ -11,7 +11,7 @@ spring:
       server:
         git:
           uri: https://gitee.com/zyb23/config-repo/
-          search-paths: '{application}'
+          search-paths: yongyuanfeiyang
           username: zyb23
           password: 1qazcde35tgb
           force-pull: true
