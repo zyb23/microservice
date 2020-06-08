@@ -6,7 +6,7 @@ spring:
   application:
     name: config-server
   profiles:
-    active: local
+    active: prod
   cloud:
     bus:
       enabled: true
